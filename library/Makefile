@@ -8,14 +8,17 @@ OBJ_DIR = obj
 SOURCES = $(wildcard *.c)
 OBJS = $(patsubst %.c,$(OBJ_DIR)/%.o,$(SOURCES))
 
-all: $(BIN_DIR)/$(PROJECT_NAME).a $(BIN_DIR)/$(PROJECT_NAME).so
+all: $(BIN_DIR)/$(PROJECT_NAME).a $(BIN_DIR)/$(PROJECT_NAME).dylib $(BIN_DIR)/$(PROJECT_NAME).dylib.a
 -include $(OBJS:.o=.d)
 $(BIN_DIR)/$(PROJECT_NAME).a: $(OBJS)
 	$(MKDIR_PROJECT) $(BIN_DIR)
-	ar rcs $@ $^ -o
+	ar rcs $@ $^
 
-$(BIN_DIR)/$(PROJECT_NAME).so: $(OBJS)
+$(BIN_DIR)/$(PROJECT_NAME).dylib: $(OBJS)
 	$(CC) -dynamiclib -o $(BIN_DIR)/$(PROJECT_NAME).dylib -dy $^
+
+$(BIN_DIR)/$(PROJECT_NAME).dylib.a: $(OBJS)
+	$(CC) -dynamiclib -o $(BIN_DIR)/$(PROJECT_NAME).dylib.a -dy $^
 
 $(OBJ_DIR)/%.o: %.c
 	$(MKDIR_PROJECT) $(OBJ_DIR)
@@ -24,4 +27,4 @@ $(OBJ_DIR)/%.o: %.c
 
 .PHONY : clean
 clean:
-	rm -rf $(OBJ_DIR)/*.o $(OBJ_DIR)/*.d $(BIN_DIR)/$(PROJECT_NAME)}
+	rm -rf $(OBJ_DIR)/*.o $(OBJ_DIR)/*.d $(BIN_DIR)/$(PROJECT_NAME)
