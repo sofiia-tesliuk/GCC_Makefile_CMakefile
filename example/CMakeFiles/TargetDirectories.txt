@@ -1,0 +1,4 @@
+/Users/sofiyatslk/Documents/II course/POK/Lab_1/GCC_Makefile_CMakefile/example/CMakeFiles/rebuild_cache.dir
+/Users/sofiyatslk/Documents/II course/POK/Lab_1/GCC_Makefile_CMakefile/example/CMakeFiles/edit_cache.dir
+/Users/sofiyatslk/Documents/II course/POK/Lab_1/GCC_Makefile_CMakefile/example/CMakeFiles/djpeg.dir
+/Users/sofiyatslk/Documents/II course/POK/Lab_1/GCC_Makefile_CMakefile/example/CMakeFiles/cjpeg.dir
