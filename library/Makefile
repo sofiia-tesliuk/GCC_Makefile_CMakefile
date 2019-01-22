@@ -14,10 +14,10 @@ $(BIN_DIR)/$(PROJECT_NAME).a: $(OBJS)
 	ar rcs $@ $^
 
 $(BIN_DIR)/$(PROJECT_NAME).dylib: $(OBJS)
-	$(CC) -dynamiclib -o $(BIN_DIR)/$(PROJECT_NAME).dylib -dy $^
+	$(CC) -dynamiclib -o $(BIN_DIR)/$(PROJECT_NAME).dylib -dy $^ -fPIC
 
 $(BIN_DIR)/$(PROJECT_NAME).dylib.a: $(OBJS)
-	$(CC) -dynamiclib -o $(BIN_DIR)/$(PROJECT_NAME).dylib.a -dy $^
+	$(CC) -dynamiclib -o $(BIN_DIR)/$(PROJECT_NAME).dylib.a -dy $^ -fPIC
 
 $(OBJ_DIR)/%.o: %.c
 	$(CC) -c $(CFLAGS) $< -o $@
